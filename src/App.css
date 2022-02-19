@@ -100,7 +100,7 @@
 }
 .favorites-table{
   padding: 3rem;
-  /* overflow: auto; */
+  overflow: auto;
 }
 
 @media screen and (max-width:400px){
