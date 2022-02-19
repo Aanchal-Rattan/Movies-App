@@ -157,11 +157,11 @@ export default class Favorites extends Component {
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Genres</th>
-                                                <th scope="col" ><i class="fa-solid fa-caret-up" onClick={this.sortPopularityDesc}></i>Popularity<i class="fa-solid fa-caret-down" onClick={this.sortPopularityAsc}></i></th>
-                                                <th scope="col" ><i class="fa-solid fa-caret-up" onClick={this.sortRatingDesc}></i>Rating<i class="fa-solid fa-caret-down" onClick={this.sortRatingAsc}></i></th>
-                                                <th scope="col"></th>
+                                                <th scope="col" style={{color:'white'}}>Title</th>
+                                                <th scope="col" style={{color:'white'}}>Genres</th>
+                                                <th scope="col"  style={{color:'white'}}><i class="fa-solid fa-caret-up" onClick={this.sortPopularityDesc}></i>Popularity<i class="fa-solid fa-caret-down" onClick={this.sortPopularityAsc}></i></th>
+                                                <th scope="col"  style={{color:'white'}}><i class="fa-solid fa-caret-up" onClick={this.sortRatingDesc}></i>Rating<i class="fa-solid fa-caret-down" onClick={this.sortRatingAsc}></i></th>
+                                                <th scope="col"  style={{color:'white'}}></th>
 
                                             </tr>
                                         </thead>
@@ -169,11 +169,11 @@ export default class Favorites extends Component {
                                             {
                                                 filterarr.map((movieObj) => (
                                                     <tr>
-                                                        <td><img src={`https://image.tmdb.org/t/p/original${movieObj.backdrop_path}`} alt={movieObj.title} style={{ width: '5rem' }} /> {movieObj.original_title}</td>
+                                                        <td style={{color:'white'}}><img src={`https://image.tmdb.org/t/p/original${movieObj.backdrop_path}`} alt={movieObj.title} style={{ width: '5rem' }} /> {movieObj.original_title}</td>
 
-                                                        <td>{genreids[movieObj.genre_ids[0]]}</td>
-                                                        <td>{movieObj.popularity} </td>
-                                                        <td>{movieObj.vote_average} </td>
+                                                        <td style={{color:'white'}}>{genreids[movieObj.genre_ids[0]]}</td>
+                                                        <td style={{color:'white'}}>{movieObj.popularity} </td>
+                                                        <td style={{color:'white'}}>{movieObj.vote_average} </td>
                                                         <td><button type="button" class="btn btn-danger" onClick={() => this.handleDelete(movieObj.id)}>Delete</button></td>
                                                         {/* <td style={{color: 'white'}}>{genreids[movieObj.genre_ids[0]]}</td>
                                                     <td style={{color: 'white'}}>{movieObj.popularity}</td>

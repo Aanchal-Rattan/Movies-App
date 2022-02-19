@@ -94,7 +94,7 @@ export default class Movies extends Component {
                             <span class="visually-hidden">Loading...</span>
                         </div> :
                         <div>
-                            <h3 className="text-center"><strong>Trending</strong></h3>
+                            <h3 className="text-center" style={{color:'white'}}><strong>Trending</strong></h3>
                             <div className='movies-list'>
                                 {
                                     this.state.movies.map((movieObj) => (
