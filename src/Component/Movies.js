@@ -10,6 +10,7 @@ export default class Movies extends Component {
             parr: [1],
             currPage: 1,
             movies: [],
+            favorites : []
         }
     }
     async componentDidMount() {
@@ -64,6 +65,24 @@ export default class Movies extends Component {
             }, this.changeMovies)
         }
     }
+    handleFavorites = (movie) => {
+        let oldData = JSON.parse(localStorage.getItem("movie2") || "[]")
+        if (this.state.favorites.includes(movie.id)) {
+            oldData = oldData.filter((m) => m.id != movie.id)
+        } else {
+            oldData.push(movie)
+        }
+        localStorage.setItem("movie2", JSON.stringify(oldData));
+        console.log(oldData);
+        this.handleFavoritesState();
+    }
+    handleFavoritesState=()=>{
+        let oldData = JSON.parse(localStorage.getItem("movie2")||"[]")
+        let temp = oldData.map((movie)=>movie.id);
+        this.setState({
+            favorites:[...temp]
+        })
+    }
     render() {
         // let movie = movies.results
         // console.log('render');
@@ -87,8 +106,8 @@ export default class Movies extends Component {
                                             <div className='button-wrapper ' style={{ display: 'flex', width: '100', justifyContent: 'center ' }}>
                                                 {
                                                     this.state.hover == movieObj.id &&
-                                                    <a className="btn btn-primary movies-button" style={{ border: 'none' }} >Add To Favourites</a>
-                                                    // <a className="btn btn-primary movies-button" style={{border:'none'}} onClick={()=>this.handleFavourites(movieObj)}>{this.state.favourites.includes(movieObj.id)?"Remove from favourites":"Add to favourites"}</a>
+                                                    
+                                                    <a className="btn btn-primary movies-button" style={{border:'none'}} onClick={()=>this.handleFavorites(movieObj)}>{this.state.favorites.includes(movieObj.id)?"Remove from favorites":"Add to favorites"}</a>
 
                                                 }
 
