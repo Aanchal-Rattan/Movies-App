@@ -27,6 +27,7 @@ export default class Movies extends Component {
         //     if (entries[0].isIntersecting) {
         //         this.loadMoreMovies();
         //     }
+        this.handleFavoritesState();
     }
     changeMovies = async () => {
         console.log("changemovies called");

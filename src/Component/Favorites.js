@@ -124,7 +124,7 @@ export default class Favorites extends Component {
             pagesarr.push(i);
         }
         let si = (this.state.currPage - 1) * this.state.limit;
-        let ei = si + this.state.limit;
+        let ei = si + Number(this.state.limit);
         filterarr = filterarr.slice(si, ei);
 
 
